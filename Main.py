@@ -8,7 +8,7 @@ def main():
     # Header
     header()
     
-    # Menempatkan tombol "Klasifikasi" di tengah
+    # split column
     col1, col2 = st.columns([0.4, 0.6])
 
     with col2:

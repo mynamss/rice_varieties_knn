@@ -4,9 +4,6 @@ import pandas as pd
 # local module
 from utils import loading_animation, validate_inputs
 
-# def on_submit(**datas):
-#   st.write("Submited", datas)
-
 def form_input():
   # form
   with st.form(key="input_form"):
@@ -76,7 +73,7 @@ def form_input():
       format="%.8f", 
       placeholder="0.0",
       )
-  
+      
       submit_button = st.form_submit_button(
           label="Hasil Klasifikasi", 
           type="primary",

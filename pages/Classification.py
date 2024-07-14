@@ -19,6 +19,14 @@ def main():
                 ''',
                 unsafe_allow_html=True
             )
+    # split column
+    col1, col2 = st.columns([0.6, 0.1])
+
+    with col2:
+            btn_home = st.button("⬅️ Home", key="home")
+    
+    if btn_home:
+        st.switch_page("Main.py")    
     
     st.info('''
         ➡️ Masukkan nilai untuk setiap _form_ (satuan _pixel_)

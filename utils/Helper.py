@@ -1,6 +1,9 @@
 import pickle
 import time
 import streamlit as st
+import os
+from dotenv import load_dotenv
+import pandas as pd
 
 def load_model(model_path):
     """
@@ -34,4 +37,25 @@ def loading_animation():
     start_load.empty()
     # latest_iteration.empty()
     
-  
+def load_range():
+    
+    load_dotenv()
+    
+    def parse_range(min_key, max_key):
+        return float(os.getenv(min_key)), float(os.getenv(max_key))
+    
+    RANGE = {
+        'Area': parse_range('AREA_MIN', 'AREA_MAX'),
+        'Perimeter': parse_range('PERIMETER_MIN', 'PERIMETER_MAX'),
+        'Major Axis Length': parse_range('MAJOR_AXIS_LENGTH_MIN', 'MAJOR_AXIS_LENGTH_MAX'),
+        'Minor Axis Length': parse_range('MINOR_AXIS_LENGTH_MIN', 'MINOR_AXIS_LENGTH_MAX'),
+        'Eccentricity': parse_range('ECCENTRICITY_MIN', 'ECCENTRICITY_MAX'),
+        'Convex Area': parse_range('CONVEX_AREA_MIN', 'CONVEX_AREA_MAX'),
+        'Extent': parse_range('EXTENT_MIN', 'EXTENT_MAX')
+    }
+    
+    # create DataFrame
+    data = [(key, value[0], value[1]) for key, value in RANGE.items()]
+    df_range = pd.DataFrame(data, columns=["Input Form", "Min (px)", "Max (px)"])
+
+    return RANGE, df_range

@@ -21,6 +21,6 @@ DETECTION = "KNN_MODEL"
 SCALER = "ROBUST_MODEL"
 
 
-COLUMNS = ["Area", "Perimeter", "Major_Axis_Length",	"Minor_Axis_Length",	"Eccentricity",	"Convex_Area", "Extent"] 
+COLUMNS = ["Area", "Perimeter", "Major_Axis_Length", "Minor_Axis_Length", "Eccentricity", "Convex_Area", "Extent"] 
 
 
